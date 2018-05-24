@@ -18,6 +18,8 @@ public:
     std::string getLicence(){return licence;}
     int getArea(){return area;}
     bool isEmpty();
+    bool operator==(Car&other);
+    bool operator!=(Car&other);
     ~Car(){}
 };
 

@@ -18,11 +18,11 @@ private:
     TElement t[200];
     int lenght;
     int hash(TKey k, int i);
-    int h1(TKey &k);
-
-
 public:
+
+
     HashTable(){}
+    int h1(TKey &k);
     int getLength(){return lenght;}
     void add(TElement e);
     TElement* getElems(){return t;}

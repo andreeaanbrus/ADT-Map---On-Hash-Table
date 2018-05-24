@@ -1,33 +1,38 @@
 #include <iostream>
 #include <fstream>
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
+#include "Tests.h"
 #include "HashTable.h"
 #include "Map.h"
 
 void read(Map& m);
-typedef int TValue;
 
 void printMenu();
 void printMap(const Map&m);
-void addCar(const std::string& s);
-int main() {
-    Map m;
-    read(m);
-    int cmd = -1;
-    while(cmd != 0) {
-        printMenu();
-        std::cin >> cmd;
-        if(cmd == 1){
-            printMap(m);
-        }
-        if(cmd == 2){
-            std::string s;
-            std::cout << "Give your licence plate\n";
-            std::cin >> s;
-            addCar(s);
-        }
-    }
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+void addCar(Map &m);
+void findCar(Map &m);
+int main(int argc, char*argv[]) {
+    testing::InitGoogleTest(&argc, argv);
+    RUN_ALL_TESTS();
+//    Map m;
+//    read(m);
+//    int cmd = -1;
+//    while(cmd != 0) {
+//        printMenu();
+//        std::cin >> cmd;
+//        if(cmd == 1){
+//            printMap(m);
+//        }
+//        if(cmd == 2){
+//            addCar(m);
+//        }
+//        if(cmd == 3) {
+//            findCar(m);
+//        }
+//    }
+//    std::cout << "Hello, World!" << std::endl;
+//    return 0;
 }
 
 void read(Map& m){
@@ -44,13 +49,12 @@ void read(Map& m){
         m.add(cars[i], val);
     }
 
-    m.search("BN96VAD", 2);
-    m.remove("BN03LXF");
 }
 void printMenu(){
     std::cout << "0 -> Exit\n";
     std::cout << "1 -> Print the map\n";
     std::cout << "2 -> Add a new car to the parking lot\n";
+    std::cout << "3 -> Find where you left your car\n";
 }
 
 void printMap(const Map &m){
@@ -61,6 +65,23 @@ void printMap(const Map &m){
     }
 }
 
-void addCar(const std::string &s){
+void addCar(Map &m){
+    std::string licence;
+    int value;
+    std::cout << "Give the licence number(ex: BN04DFL): ";
+    std::cin >> licence;
+    std::cout << "Give the area where you parked(schimba sa se genereze automat): ";
+    std::cin >> value;
+    m.add(licence, value);
     std::cout << "Aici se face add\n";
+}
+
+void findCar(Map &m){
+    std::string licence;
+    std::cout << "Give the licence number";
+    std::cin >> licence;
+    int p = m.search(licence, 0);
+    std::cout << p << '\n';
+    std::cout << "Schimba search -> pune doar licence\n";
+//    m.remove(licence);
 }

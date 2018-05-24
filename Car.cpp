@@ -9,3 +9,11 @@ bool Car::isEmpty() {
         return true;
     return false;
 }
+
+bool Car::operator==(Car &other) {
+    return this -> licence == other.getLicence();
+}
+
+bool Car::operator!=(Car &other) {
+    return this->licence != other.getLicence();
+}

@@ -59,11 +59,11 @@ TValue HashTable::search(TElement e) {
     int i = 0;
     TKey k = e.getLicence();
     int pos = h1(k) % lenght;
-    while(t[pos].getLicence() != e.getLicence()){
+    while(t[pos] != e){
         i++;
         pos = (h1(k) % lenght + i)%lenght;
         if(i > lenght)
-            return false;
+            return -1;
     }
     return pos;
 }
