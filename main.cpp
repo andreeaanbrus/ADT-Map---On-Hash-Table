@@ -15,22 +15,22 @@ void findCar(Map &m);
 int main(int argc, char*argv[]) {
     testing::InitGoogleTest(&argc, argv);
     RUN_ALL_TESTS();
-//    Map m;
-//    read(m);
-//    int cmd = -1;
-//    while(cmd != 0) {
-//        printMenu();
-//        std::cin >> cmd;
-//        if(cmd == 1){
-//            printMap(m);
-//        }
-//        if(cmd == 2){
-//            addCar(m);
-//        }
-//        if(cmd == 3) {
-//            findCar(m);
-//        }
-//    }
+    Map m;
+    read(m);
+    int cmd = -1;
+    while(cmd != 0) {
+        printMenu();
+        std::cin >> cmd;
+        if(cmd == 1){
+            printMap(m);
+        }
+        if(cmd == 2){
+            addCar(m);
+        }
+        if(cmd == 3) {
+            findCar(m);
+        }
+    }
 //    std::cout << "Hello, World!" << std::endl;
 //    return 0;
 }

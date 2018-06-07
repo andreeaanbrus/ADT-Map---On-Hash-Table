@@ -24,10 +24,10 @@ public:
     HashTable(){}
     int h1(TKey &k);
     int getLength(){return lenght;}
-    void add(TElement e);
     TElement* getElems(){return t;}
-    void read();
     void setLength(int x){this-> lenght = x;}
+    void read();
+    void add(TElement e);
     TValue search(TElement e);
     TValue remove(TElement k);
     ~HashTable(){}

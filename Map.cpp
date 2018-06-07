@@ -16,6 +16,8 @@ void Map::add(std::string &key, int &value) {
 TValue Map::remove(TKey key) {
     TElement elem(key, 0);
     int pos = t.search(elem);
+//    if(pos == -1)
+//        throw "Element not found!";
     int value = t.getElems()[pos].getArea();
     t.remove(elem);
     return value;
